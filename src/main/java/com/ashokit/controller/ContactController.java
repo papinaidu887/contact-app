@@ -29,6 +29,8 @@ public class ContactController {
 			@Autowired
 			private AppProperties appProps;
 			
+			
+			// to create contact or update contact 
 			@PostMapping("/contact")
 			public String saveConatct(@RequestBody Contact contact)
 			{
@@ -36,7 +38,7 @@ public class ContactController {
 				
 				Map<String,String> messages = appProps.getMessages();
 				
-				if (status 	) 
+				if (status) 
 				{
 					return messages.get(AppConstants.CONTACT_SAVE_SUCC);
 				} else {
@@ -52,7 +54,7 @@ public class ContactController {
 				return contactService.getAllContacts();
 			}
 			
-			// @getContactById
+			// to get a contact based on contactId
 			
 			@GetMapping("/contact/{cid}")
 			public Contact editContact(@PathVariable("cid") Integer contactId)
@@ -79,24 +81,6 @@ public class ContactController {
 				}
 				
 			}
-			
-			
-			// update contact component
-			
-//			@PutMapping("{contactId}")
-//			public ResponseEntity<Contact> updateContact(@PathVariable("contactId") Integer contactId, @RequestBody Contact contact)
-//			{
-//				boolean isUpdated = contactService.saveContact(contact);
-//				
-//				if(isUpdated)
-//				{
-//					return new ResponseEntity<Contact>(HttpStatus.OK);
-//				}
-//				else 
-//				{
-//					return new ResponseEntity<Contact>(HttpStatus.CONFLICT);
-//				}
-//			}
 				
 			
 			
